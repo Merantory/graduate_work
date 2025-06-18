@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: 5
+      author: tyunin
+      changes:
+        - tagDatabase:
+            tag: chatRoomTableTag
+        - sqlFile:
+            dbms: "postgresql"
+            relativeToChangelogFile: true
+            path: sql/create_chat_room_table.sql
+
+      rollback:
+        - sqlFile:
+            dbms: "postgresql"
+            relativeToChangelogFile: true
+            path: sql/rollback_chat_room_table.sql

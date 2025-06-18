@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  metrics:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    container_name: metrics-app
+    networks:
+      - metric_network
+    ports:
+      - "8080:8080"  # основной порт сервиса
+      - "8081:8081"  # порт для экспорта метрик
+
+networks:
+  metric_network: {}

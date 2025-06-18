@@ -1,0 +1,71 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: backend
+  datasource:
+    url: jdbc:postgresql://rc1b-zm1dpcaysydtoyfq.mdb.yandexcloud.net:6432,rc1d-vodgk69guv1p64zp.mdb.yandexcloud.net:6432/stud?targetServerType=master&ssl=true&sslmode=verify-full
+    driver-class-name: org.postgresql.Driver
+    username: tynin
+    password: root1234
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    prometheus:
+      enabled: true
+  server:
+    port: 8081
+  metrics:
+    web:
+      server:
+        request:
+          autotime:
+            enabled: true
+
+cors:
+  frontend:
+    base-url: http://89.169.171.191
+    port: 8080
+  sso:
+    base-url: http://158.160.4.88
+    port: 8080
+
+kafka:
+  bootstrap-server: rc1a-etvl636f5eu0b5e4.mdb.yandexcloud.net:9091
+  topic:
+    log: logs
+  user: tynin
+  password: root1234
+  sasl:
+    mechanism: SCRAM-SHA-512
+  ssl:
+    ts-file: /etc/security/ssl
+    ts-pass: root1234
+
+cloud:
+  aws:
+    credentials:
+      access-key: YCAJEV0SCeH22ZUTXn_iVkGCB
+      secret-key: YCP5dGnXcbyH2P-NgqZOPqtcjrcGbQpcG1UFmq1L
+    region:
+      static: us-east-1
+    stack:
+      auto: false
+
+object-storage:
+  endpoint: https://storage.yandexcloud.net/
+  bucket-name: user-profile-images
+
+

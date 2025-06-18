@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: tyunin
+      changes:
+        - tagDatabase:
+            tag: emptyDatabaseTag
+  - include:
+      relativeToChangelogFile: true
+      file: changeset/1_user_table.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: changeset/2_discussion_table.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: changeset/3_comment_table.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: changeset/4_chat_room_table.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: changeset/5_message_table.yaml

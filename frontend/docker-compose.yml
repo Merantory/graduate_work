@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  vue-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - VUE_APP_OAUTH_REDIRECT_URI=http://89.169.171.191:8080/code
+        - VUE_APP_OAUTH_CLIENT_ID=web-client
+        - VUE_APP_OAUTH_AUTH_HEADER=Basic d2ViLWNsaWVudDp3ZWItY2xpZW50
+        - VUE_APP_OAUTH_URL=http://158.160.4.88:8080
+        - VUE_APP_BACKEND_HOST=http://158.160.8.9:8080
+        - VUE_APP_MESSANGER_HOST=http://158.160.22.220:8080
+    container_name: vue-frontend
+    ports:
+      - "80:8080"
+    restart: unless-stopped

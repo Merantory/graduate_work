@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: metrics
+
+management:
+  server:
+    port: 8081
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    prometheus:
+      enabled: true
+
+yandex:
+  cloud:
+    logging:
+      port: 443
+      endpoint: logging.api.cloud.yandex.net
+      logGroupId: e23isubsk9rf17frd5c5
+      apiKey: AQVNyVzQCytRNAkfOQRGpImEffRpK1QODU5YmWGL
+
+kafka:
+  bootstrap-server: rc1a-etvl636f5eu0b5e4.mdb.yandexcloud.net:9091
+  group-id: demo
+  topic:
+    log: logs
+  user: tynin
+  password: root1234
+  sasl:
+    mechanism: SCRAM-SHA-512
+  ssl:
+    ts-file: /etc/security/ssl
+    ts-pass: root1234
